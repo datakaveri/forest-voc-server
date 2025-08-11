@@ -10,3 +10,9 @@
 [submodule "agri-voc"]
 	path = agri-voc
 	url = git@github.com:datakaveri/agri-voc.git
+[submodule "forest-voc/forest-voc"]
+	path = forest-voc/forest-voc
+	url = git@github.com:datakaveri/forest-voc.git
+[submodule "forest-voc"]
+	path = forest-voc
+	url = git@github.com:datakaveri/forest-voc.git

@@ -1,5 +1,5 @@
 {
-  "vocserver.prefix": "iudx:",
+  "vocserver.prefix": "forest:",
   "vocserver.type": "localauth",
   "vocserver.webhookpasswd": "pass",
   "vocserver.localpassword": "pass",
@@ -7,7 +7,7 @@
   "vocserver.id": "org/sha1/example.com/",
   "vocserver.http.instances": 2,
   "vocserver.database.queue": "vocserver.database.queue",
-  "vocserver.reponame": "iudx-voc/",
+  "vocserver.reponame": "forest-voc/",
   "vocserver.database.url": "mongodb://db:27017",
   "vocserver.database.username": "abc",
   "vocserver.database.password": "123",

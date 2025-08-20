@@ -266,8 +266,8 @@
                             "@type",
                             "rdfs:comment",
                             "rdfs:label",
-                            "iudx:domainIncludes",
-                            "iudx:rangeIncludes"
+                            "forest:domainIncludes",
+                            "forest:rangeIncludes"
                         ],
                         "additionalProperties": true,
                         "properties": {

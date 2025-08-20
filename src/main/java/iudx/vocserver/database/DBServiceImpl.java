@@ -28,8 +28,8 @@ class DBServiceImpl implements DBService {
   private final SearchService searchClient;
 
   private String prefix = "iudx:";
-  
-  /** Begin Queries */ 
+
+  /** Begin Queries */
 
   // Find all classes
   private static final String QUERY_FIND_ALL_CLASSES =
@@ -40,15 +40,15 @@ class DBServiceImpl implements DBService {
     "{\"type\": \"property\"}";
 
   // Find a class or property
-  private static final String QUERY_MATCH_ID = 
+  private static final String QUERY_MATCH_ID =
     "{\"_id\": \"$1\"}";
 
   // Find examples of type
-  private static final String QUERY_MATCH_TYPE = 
+  private static final String QUERY_MATCH_TYPE =
     "{\"type\": \"$1\"}";
 
-  private static final String QUERY_SUMMARIZE = 
-    "[ { \"$match\": { \"_id\": \"$0:$1\" } },"
+  private static final String QUERY_SUMMARIZE =
+    "[ { \"$match\": { \"_id\": \"$0$1\" } },"
     +    "{ \"$unwind\": \"$@graph\" },"
     +    "{ \"$match\": { \"@graph.rdfs:label\": \"$1\" } },"
     +    "{ \"$project\": { \"_id\": \"$@graph.rdfs:label\","
@@ -62,11 +62,11 @@ class DBServiceImpl implements DBService {
   private static final String QUERY_SIMPLE_SEARCH =
     "{\"$or\": [{\"comment\": {\"$regex\": \"(?i).*$1.*\"}},"
          + "{\"label\": {\"$regex\": \"(?i).*$1.*\"}}]}";
-    
+
   private static final String QUERY_RELATIONSHIP_SEARCH =
     "{\"$1\": \"$2\"}";
 
-  /** End Queries */ 
+  /** End Queries */
 
   /**
   * DBService constructor
@@ -125,7 +125,7 @@ class DBServiceImpl implements DBService {
           }
         });
         resultHandler.handle(Future.succeededFuture());
-      } 
+      }
       else {
         LOGGER.error(res.cause().getMessage());
         resultHandler.handle(Future.failedFuture(res.cause()));

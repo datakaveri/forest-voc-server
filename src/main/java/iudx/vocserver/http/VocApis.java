@@ -60,7 +60,7 @@ public final class VocApis implements VocApisInterface {
   private static String DESCRIPTORS_REPO = "user-contrib-models/";
   private String vocRepo = VOC_REPO;
 
-  private static String UPDATE_REPO_CMD = "nohup  git config --global --add safe.directory /vocserver/$vocRepo &&  git fetch && git reset --hard origin/master  > nohup.out 2>&1 &";
+  private static String UPDATE_REPO_CMD = "nohup  git config --global --add safe.directory '*' &&  git fetch && git reset --hard origin/master  > nohup.out 2>&1 &";
 
   private static String PUSH_SCHEMAS_CMD = "nohup python3 utils/push/hook.py &";
   private static String PUSH_DESCRIPTORS_CMD = "nohup python3 utils/push/hook.py &";
@@ -108,7 +108,7 @@ public final class VocApis implements VocApisInterface {
           .end();
       }
     });
-    Proc.execCommand("cd " + vocRepo + " && " + UPDATE_REPO_CMD.replace("$vocRepo", vocRepo));
+    Proc.execCommand("cd " + vocRepo + " && " + UPDATE_REPO_CMD);
     Proc.execCommand("cd " + vocRepo + " && " + PUSH_SCHEMAS_CMD);
     context.response()
       .putHeader("content-type", "application/json")
